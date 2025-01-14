@@ -1,0 +1,18 @@
+services:
+  price-bati:
+    container_name: price-bati
+    build: .
+    # On mappe le port 8000 du container vers le port 8000 local
+    ports:
+      - "8000:8000"
+    # Optionnel : on monte le code local dans le container (pratique pour dev)
+    volumes:
+      - .:/app
+    # On peut passer des variables d'environnement supplémentaires, si besoin
+    environment:
+      - PORT=8000
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/firebase_credentials.json
+    restart: always
+    # Si vous aviez un autre service, vous pourriez le configurer ici
+    # depends_on:
+    #   - autre_service
