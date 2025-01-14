@@ -1,6 +1,4 @@
-# FastAPI + Firebase Firestore Example
-
-This repository demonstrates how to build a FastAPI application connected to Firebase Firestore, with Docker and Docker Compose for containerization and scalability. It also includes a Makefile to streamline tasks such as installing dependencies, building images, or running tests.
+# Right Price Worker AI Predictor
 
 Demo URL: https://bati-predictor.vercel.app/
 
@@ -56,7 +54,7 @@ Demo URL: https://bati-predictor.vercel.app/
 Clone the repository:
 ```bash
 git clone https://github.com/math1761/price-bati.git
-cd fastapi-firebase-example
+cd price-bati
 ```
 Install dependencies:
 ```bash
@@ -72,11 +70,11 @@ Access the docs at [http://localhost:8000/docs](http://localhost:8000/docs).
 ## Running with Docker
 Build the Docker image:
 ```bash
-docker build -t fastapi-firebase:latest .
+docker build -t price-bati:latest .
 ```
 Run the container:
 ```bash
-docker run -d --name fastapi-firebase -p 8000:8000 fastapi-firebase:latest
+docker run -d --name price-bati -p 8000:8000 price-bati:latest
 ```
 The application should be accessible at [http://localhost:8000](http://localhost:8000).
 
@@ -95,32 +93,6 @@ Check logs:
 ```bash
 docker-compose logs -f
 ```
-
-## Using the Makefile
-We provide a Makefile with several helpful targets:
-- `make install`: Installs Python dependencies from `requirements.txt`.
-- `make dev`: Runs the FastAPI app in development mode (auto-reload).
-- `make run`: Runs the FastAPI app in standard mode (no auto-reload).
-- `make test`: Runs unit tests (configure as needed).
-- `make lint`: Lints the code (configure for flake8, black, etc.).
-- `make format`: Formats the code (e.g., black, isort).
-- `make docker-build`: Builds the Docker image.
-- `make docker-run`: Runs the container in detached mode.
-- `make docker-rm`: Stops and removes the running container.
-- `make docker-push`: Pushes the built image to a Docker registry.
-- `make docker-compose-up`: Launches Docker Compose in detached mode.
-- `make docker-compose-down`: Stops Docker Compose services.
-- `make docker-compose-logs`: Shows logs in real-time from Docker Compose.
-- `make clean`: Cleans up temporary files, Docker dangling images/volumes, etc.
-
-Use `make help` to see all available commands.
-
-## Endpoints
-- `GET /`: Returns a welcome message.
-- `POST /seed`: Inserts sample data into Firestore (useful for testing when no real data is available).
-- `GET /items`: Returns the list of all items (projects) from Firestore.
-
-Additional endpoints can be added in `main.py` as needed.
 
 ## Roadmap & Future Improvements
 - **Authentication / Authorization:** Secure your endpoints with Firebase Auth or OAuth2.
